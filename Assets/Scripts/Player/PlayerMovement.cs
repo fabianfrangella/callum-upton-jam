@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Player
 {
@@ -9,7 +8,6 @@ namespace Player
         public float jumpForce = 2;
         private Rigidbody2D _rb;
         private bool _isJumping;
-        private bool _isScared;
 
         // MonoBehaviour methods
         private void Start()
@@ -20,7 +18,6 @@ namespace Player
         private void Update()
         {
             HandleJump();
-            HandleScared();
         }
         private void FixedUpdate()
         {
@@ -58,16 +55,5 @@ namespace Player
             }
         }
 
-        private void HandleScared()
-        {
-            // For debug
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                _isScared = !_isScared;
-                Debug.Log(_isScared);
-            }
-            Time.timeScale = _isScared ? 0.5f : 1;
-        }
-        
     }
 }
